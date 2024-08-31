@@ -37,7 +37,9 @@ export abstract class ObjectAnimated extends ObjectBase {
         firstFrame: config.firstFrame ?? 0
       })
     }
-    image.src = config.src
+
+    //whem path starts with / add "." to fix path error
+    image.src = config.src.startsWith('/') ? '.' + config.src : config.src
   }
 
   update() {

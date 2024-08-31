@@ -19,8 +19,8 @@ export class Player extends ObjectAnimated {
   }
 
   createAnimations() {
-    const idlePath = "/img/player/Idle.png"
-    const walkPath = "/img/player/Walk.png"
+    const idlePath = "img/player/Idle.png"
+    const walkPath = "img/player/Walk.png"
     this.addAnimation("idle_up", { frameRate: 1, frameBuffer: 20, src: idlePath, autoPlay: false, firstFrame: 1 })
     this.addAnimation("idle_down", { frameRate: 1, frameBuffer: 20, src: idlePath, autoPlay: false, firstFrame: 0 })
     this.addAnimation("idle_left", { frameRate: 1, frameBuffer: 20, src: idlePath, autoPlay: false, firstFrame: 2 })

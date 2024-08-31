@@ -9,6 +9,8 @@ export abstract class ObjectImage extends ObjectBase {
   constructor(position: Vector2, image: string, fixedOnScreen?: boolean, collider?: boolean) {
     super(position, 0, 0, fixedOnScreen, collider);
     this.image.onload = () => this.onLoad()
+    //whem path starts with / add "." to fix path error
+    image = image.startsWith('/') ? '.' + image : image
     this.image.src = image
   }
 

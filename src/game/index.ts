@@ -47,9 +47,9 @@ export class Game {
   }
 
   createBackground() {
-    const background1 = new Background(new Vector2(0, 0), "/img/map/map.png");
-    const background2 = new Background(new Vector2(0, 0), "/img/map/map-details.png");
-    const background3 = new Background(new Vector2(0, 0), "/img/map/map-details-2.png");
+    const background1 = new Background(new Vector2(0, 0), "img/map/map.png");
+    const background2 = new Background(new Vector2(0, 0), "img/map/map-details.png");
+    const background3 = new Background(new Vector2(0, 0), "img/map/map-details-2.png");
 
     LayerManager.addObejct(LayersName.background, background1)
     LayerManager.addObejct(LayersName.map_l_1, background2)
