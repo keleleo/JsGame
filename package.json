@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "snowpack build",
+    "build-watch": "snowpack build --watch"
   },
   "keywords": [],
   "author": "",
