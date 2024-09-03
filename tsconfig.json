@@ -1,7 +1,7 @@
 {
-  "include": ["src", "types"],
+  "include": ["src", "types","./tiled/converter"],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "target": "esnext",
     "moduleResolution": "node",
     "jsx": "preserve",

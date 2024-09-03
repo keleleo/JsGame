@@ -10,11 +10,11 @@ import { getNpcs } from './npcs-data';
 
 enum LayersName {
   "colliders" = "colliders",
-  "background" = "background",
-  "map_l_1" = "map_l_1",
+  "map" = "map",
   "NPC" = "NPC",
   "player" = "player",
-  "map_l_2" = "map_l_2",
+  "map_details_1" = "map_details_1",
+  "map_details_2" = "map_details_1",
   "interations" = "interations",
   "UI" = "UI",
 }
@@ -43,7 +43,7 @@ export class Game {
     this.createBackground()
     this.createNpcs();
     const colliderTeste = new CollisionTeste(new Vector2(2210, 1585), 16 * 3, 16 * 3, "pink")
-    LayerManager.addObejct(LayersName.map_l_1, colliderTeste)
+    LayerManager.addObejct(LayersName.map_details_1, colliderTeste)
   }
 
   createBackground() {
@@ -51,13 +51,13 @@ export class Game {
     const background2 = new Background(new Vector2(0, 0), "img/map/map-details.png");
     const background3 = new Background(new Vector2(0, 0), "img/map/map-details-2.png");
 
-    LayerManager.addObejct(LayersName.background, background1)
-    LayerManager.addObejct(LayersName.map_l_1, background2)
-    LayerManager.addObejct(LayersName.map_l_2, background3)
+    LayerManager.addObejct(LayersName.map, background1)
+    LayerManager.addObejct(LayersName.map_details_1, background2)
+    LayerManager.addObejct(LayersName.map_details_2, background3)
   }
 
   createPlayer() {
-    const player = new Player(new Vector2(1981, 1725));
+    const player = new Player(new Vector2(1105.5, 3592.5));
     Game.playerCode = player.code
     LayerManager.addObejct(LayersName.player, player)
   }
