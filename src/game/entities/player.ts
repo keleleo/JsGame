@@ -6,12 +6,12 @@ import { Vector2 } from '../../engine/models/vector2';
 
 
 export class Player extends ObjectAnimated {
-  speed = 5
+  speed = 3
   directionX = 0
   directionY = 0
 
   constructor(position: Vector2) {
-    super(position, 16, 16, 3, false, true)
+    super(position, 16, 16, 2.7, false, true)
     this.directionY = 0
     this.directionX = 0
     this.createAnimations()
