@@ -17,17 +17,68 @@ const initialPostion = {
 function eggGirl() {
   const eggGirl = new NPC(initialPostion['npc-1'], 16, 16, 2.7, "EggGirl")
   eggGirl.path = new Path([
-    new PathPoint(initialPostion['npc-1'], 2.5, 2),
-    new PathPoint(new Vector2 (1020.5, 3567.5), 2.5, 2),
-    new PathPoint(new Vector2(1383, 3450), 10, 2),
+    new PathPoint(initialPostion['npc-1'], 0, 2),
+    new PathPoint(new Vector2(1020.5, 3567.5),4, 2),
+    new PathPoint(new Vector2(1300.8 , 3316.2), 10, 2),
   ], true)
-
   return eggGirl
 }
-
+function eggBoy() {
+  const eggBoy = new NPC(initialPostion['npc-2'], 16, 16, 2.7, "EggBoy")
+  eggBoy.path = new Path([
+    new PathPoint(initialPostion['npc-2'], 0, 2),
+    new PathPoint(new Vector2(1152 , 3790.5), 0, 2),
+    new PathPoint(new Vector2(1084.5 , 3547.5), 2, 2),
+    new PathPoint(new Vector2(1387.2 , 3369), 10, 2),
+  ], true)
+  return eggBoy
+}
+function fighterWhite() {
+  const fighterWhite = new NPC(initialPostion['npc-3'], 16, 16, 2.7, "FighterWhite")
+  return fighterWhite
+}
+function maskFrog() {
+  const maskFrog = new NPC(initialPostion['npc-4'], 16, 16, 2.7, "MaskFrog")
+  return maskFrog
+}
+function master() {
+  const master = new NPC(initialPostion['npc-5'], 16, 16, 2.7, "Master")
+  return master
+}
+function oldMan2() {
+  const oldMan2 = new NPC(initialPostion['npc-6'], 16, 16, 2.7, "OldMan2")
+  return oldMan2
+}
+function samuraiRed() {
+  const samuraiRed = new NPC(initialPostion['npc-7'], 16, 16, 2.7, "SamuraiRed")
+  return samuraiRed
+}
+function sorcererOrange() {
+  const sorcererOrange = new NPC(initialPostion['npc-8'], 16, 16, 2.7, "SorcererOrange")
+  return sorcererOrange
+}
+function villager() {
+  const villager = new NPC(initialPostion['npc-9'], 16, 16, 2.7, "Villager")
+  return villager
+}
+function caveman() {
+  const caveman = new NPC(initialPostion['npc-10'], 16, 16, 2.7, "Caveman")
+  return caveman
+}
 export function getNpcs() {
   const npcs: NPC[] = [];
-  npcs.push(eggGirl())
+  npcs.push(
+    eggGirl(),
+    eggBoy(),
+    fighterWhite(),
+    maskFrog(),
+    master(),
+    oldMan2(),
+    samuraiRed(),
+    sorcererOrange(),
+    villager(),
+    caveman(),
+  )
 
   return npcs;
 }

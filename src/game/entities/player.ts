@@ -10,6 +10,9 @@ export class Player extends ObjectAnimated {
   directionX = 0
   directionY = 0
 
+  lastKeyState = { 'p': false, 'o': false, }
+
+
   constructor(position: Vector2) {
     super(position, 16, 16, 2.7, false, true)
     this.directionY = 0
@@ -36,15 +39,13 @@ export class Player extends ObjectAnimated {
     super.update();
     this.move()
 
-
-
     Camera.position.x = this.position.x - Camera.width / 2 + this.width / 2
     Camera.position.y = this.position.y - Camera.height / 2 + this.height / 2
 
-    if (Keyboard.p) console.log("[Player] - position:", this.position)
+    if (Keyboard.p && !this.lastKeyState.p) console.log("[Player] - position:", this.position.x,",", this.position.y)
     if (Keyboard.u) ColliderManager.show()
     if (Keyboard.y) ColliderManager.unShow()
-    if (Keyboard.o) console.log(ColliderManager.getObject())
+    this.lastKeyState.p = Keyboard.p
   }
 
   move() {
