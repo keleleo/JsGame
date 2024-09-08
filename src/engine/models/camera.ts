@@ -38,9 +38,7 @@ export class Camera {
 
   static isOnScreen(position: Vector2, width: number, height: number) {
     
-    return ((position.x + width) >= this.position.x && position.x <= (this.position.x + this.width))
-      && ((position.y + height) >= this.position.y && position.y <= (this.position.y + this.height))
+    return ((position.x + width) >= 0 && position.x <= ( this.width))
+      && ((position.y + height) >= 0 && position.y <= (this.height))
   }
-
-
 }

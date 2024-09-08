@@ -27,41 +27,36 @@ export class ColliderManager {
     else
       return this.objects.delete(object)
   }
+
   static hasCollisionWith(object: ObjectBase, code: string, margin: number = 0) {
     const tObject = this.objects.get(code);
     if (!tObject) return false;
 
-    const tx = tObject.position.x
-    const ty = tObject.position.y
-    const tw = tObject.width
-    const th = tObject.height
-
-    const ox = object.position.x
-    const oy = object.position.y
-    const ow = object.width
-    const oh = object.height
-
-    return tx <= (ox + ow + margin) && (tx + tw) >= ox - margin
-      && ty <= (oy + oh + margin) && (ty + th) >= oy - margin
-
+    return this.verifyCollision(tObject, object, margin)
   }
 
   static hasCollision(object: ObjectBase, margin: number = 0) {
-    return !!this.getObject().find(f => {
-      const fx = f.position.x
-      const fy = f.position.y
-      const fw = f.width
-      const fh = f.height
+    return !!this.getObject().find(f => this.verifyCollision(f, object, margin))
+  }
+  
+  static getCollisions(object: ObjectBase, margin: number = 0) {
+    return this.getObject().filter(f => this.verifyCollision(f, object, margin))
+  }
 
-      const ox = object.position.x
-      const oy = object.position.y
-      const ow = object.width
-      const oh = object.height
+  static verifyCollision(object1: ObjectBase, object2: ObjectBase, margin: number) {
+    const fx = object1.position.x
+    const fy = object1.position.y
+    const fw = object1.width
+    const fh = object1.height
 
-      return f.code != object.code
-        && fx <= (ox + ow + margin) && (fx + fw) >= ox - margin
-        && fy <= (oy + oh + margin) && (fy + fh) >= oy - margin
-    })
+    const ox = object2.position.x
+    const oy = object2.position.y
+    const ow = object2.width
+    const oh = object2.height
+
+    return object1.code != object2.code
+      && fx <= (ox + ow + margin) && (fx + fw) >= ox - margin
+      && fy <= (oy + oh + margin) && (fy + fh) >= oy - margin
   }
 
   static leftCollision(object: ObjectBase, p: Vector2) {

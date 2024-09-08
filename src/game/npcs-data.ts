@@ -1,36 +1,34 @@
-import { Path, PathPoint } from '../engine/models/Path';
 import { Vector2 } from '../engine/models/vector2';
 import { NPC } from './entities/npc';
 const initialPostion = {
-  "npc-1": new Vector2(255 * 3, 1220 * 3),
-  "npc-2": new Vector2(344 * 3, 1284 * 3),
-  "npc-3": new Vector2(136 * 3, 1056 * 3),
-  "npc-4": new Vector2(112 * 3, 1008 * 3),
-  "npc-5": new Vector2(448 * 3, 1120 * 3),
-  "npc-6": new Vector2(904 * 3, 1300 * 3),
-  "npc-7": new Vector2(984 * 3, 1396 * 3),
-  "npc-8": new Vector2(1120 * 3, 1284 * 3),
-  "npc-9": new Vector2(1192 * 3, 1412 * 3),
-  "npc-10": new Vector2(1256 * 3, 1316 * 3)
+  "npc-1": new Vector2(520 * 3 - (16 * 2.7 / 2), 480 * 3),
+  "npc-2": new Vector2(568 * 3 - (16 * 2.7 / 2), 480 * 3),
+  "npc-3": new Vector2(472 * 3 - (16 * 2.7 / 2), 368 * 3),
+  "npc-4": new Vector2(568 * 3 - (16 * 2.7 / 2), 368 * 3),
+  "npc-5": new Vector2(648 * 3 - (16 * 2.7 / 2), 352 * 3),
+  "npc-6": new Vector2(632 * 3 - (16 * 2.7 / 2), 448 * 3),
+  "npc-7": new Vector2(728 * 3 - (16 * 2.7 / 2), 448 * 3),
+  "npc-8": new Vector2(872 * 3 - (16 * 2.7 / 2), 448 * 3),
+  "npc-9": new Vector2(824 * 3 - (16 * 2.7 / 2), 608 * 3),
+  "npc-10": new Vector2(864 * 3 - (16 * 2.7 / 2), 288 * 3),
+  "npc-11": new Vector2(984 * 3 - (16 * 2.7 / 2), 320 * 3),
+  "npc-12": new Vector2(936 * 3 - (16 * 2.7 / 2), 448 * 3),
+  "npc-14": new Vector2(1016 * 3 - (16 * 2.7 / 2), 448 * 3),
+  "npc-init": new Vector2(1797 , 1665)
 }
 
 function eggGirl() {
   const eggGirl = new NPC(initialPostion['npc-1'], 16, 16, 2.7, "EggGirl")
-  eggGirl.path = new Path([
-    new PathPoint(initialPostion['npc-1'], 0, 2),
-    new PathPoint(new Vector2(1020.5, 3567.5),4, 2),
-    new PathPoint(new Vector2(1300.8 , 3316.2), 10, 2),
-  ], true)
+  eggGirl.setDialogText(
+    "Olá, aventureiro! Sempre que bater aquela fome, sinta-se à vontade para passar aqui."
+  );
   return eggGirl
 }
 function eggBoy() {
   const eggBoy = new NPC(initialPostion['npc-2'], 16, 16, 2.7, "EggBoy")
-  eggBoy.path = new Path([
-    new PathPoint(initialPostion['npc-2'], 0, 2),
-    new PathPoint(new Vector2(1152 , 3790.5), 0, 2),
-    new PathPoint(new Vector2(1084.5 , 3547.5), 2, 2),
-    new PathPoint(new Vector2(1387.2 , 3369), 10, 2),
-  ], true)
+  eggBoy.setDialogText(
+    "Saudações, viajante! Se tiver um tempo livre, passe aqui para uma visita. Meu lar é sempre aberto para amigos e novos conhecidos."
+  );
   return eggBoy
 }
 function fighterWhite() {
@@ -59,7 +57,18 @@ function sorcererOrange() {
 }
 function villager() {
   const villager = new NPC(initialPostion['npc-9'], 16, 16, 2.7, "Villager")
+  villager.setDialogText(
+    "Você sente esse frio na espinha? O silêncio aqui é diferente... É como se as almas daqueles que partiram ainda estivessem por perto.",
+    "Dizem que, quando a lua cheia aparece, os portões do cemitério rangem por conta própria."
+  )
   return villager
+}
+function sorcererKnigh() {
+  const npc = new NPC(initialPostion["npc-init"], 16, 16, 2.7, "Knight")
+  npc.setDialogText(
+    "Bem-vindo! Este é um projeto experimental, criado para testar códigos e ideias."
+  )
+  return npc
 }
 function caveman() {
   const caveman = new NPC(initialPostion['npc-10'], 16, 16, 2.7, "Caveman")
@@ -78,6 +87,7 @@ export function getNpcs() {
     sorcererOrange(),
     villager(),
     caveman(),
+    sorcererKnigh(),
   )
 
   return npcs;

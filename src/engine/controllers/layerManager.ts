@@ -39,8 +39,10 @@ export class LayerManager {
     for (let object of this.getObjectList()) {
       const position = object.fixedOnScreen ? object.position : Camera.positionRelative(object.position)
 
-      const onScreen = Camera.isOnScreen(object.position, object.width, object.height)
+      const onScreen = Camera.isOnScreen(position, object.width, object.height)
       if (onScreen && object.visible) this.drawObject(object, position, collidersData)
+      if(!onScreen && object.fixedOnScreen) console.log(position);
+      
     }
     
     for (let data of collidersData) {

@@ -3,6 +3,8 @@ import { Camera } from '../../engine/models/camera';
 import { Keyboard } from '../../engine/models/Keyboard';
 import { ObjectAnimated } from '../../engine/models/objects/objectAnimated';
 import { Vector2 } from '../../engine/models/vector2';
+import { DialogObject } from './DialogObject';
+import { NPC } from './npc';
 
 
 export class Player extends ObjectAnimated {
@@ -10,7 +12,7 @@ export class Player extends ObjectAnimated {
   directionX = 0
   directionY = 0
 
-  lastKeyState = { 'p': false, 'o': false, }
+  lastKeyState = { 'p': false, 'e': false }
 
 
   constructor(position: Vector2) {
@@ -42,20 +44,34 @@ export class Player extends ObjectAnimated {
     Camera.position.x = this.position.x - Camera.width / 2 + this.width / 2
     Camera.position.y = this.position.y - Camera.height / 2 + this.height / 2
 
-    if (Keyboard.p && !this.lastKeyState.p) console.log("[Player] - position:", this.position.x,",", this.position.y)
+    if (Keyboard.p && !this.lastKeyState.p) console.log("[Player] - position:", this.position.x, ",", this.position.y)
     if (Keyboard.u) ColliderManager.show()
     if (Keyboard.y) ColliderManager.unShow()
+
+    if (Keyboard.e) this.interaction()
     this.lastKeyState.p = Keyboard.p
+    this.lastKeyState.e = Keyboard.e
+  }
+
+  interaction() {
+    if (DialogObject.isOpen) return;
+    const npc = ColliderManager.getCollisions(this, 6)
+      .find(f => f instanceof NPC)
+    npc?.interaction()
   }
 
   move() {
     const oldXDiretion = this.directionX == 0 ? 0 : this.directionX > 0 ? 1 : -1
     const oldYDiretion = this.directionY == 0 ? 0 : this.directionY > 0 ? 1 : -1
 
+    if (DialogObject.isOpen) {
+      this.directionX = 0
+      this.directionY = 0
+    } else {
+      this.directionX = (Keyboard.a || Keyboard.d) ? this.speed * (Keyboard.a ? -1 : 1) : 0
+      this.directionY = (Keyboard.w || Keyboard.s) ? this.speed * (Keyboard.w ? -1 : 1) : 0
 
-    this.directionX = (Keyboard.a || Keyboard.d) ? this.speed * (Keyboard.a ? -1 : 1) : 0
-    this.directionY = (Keyboard.w || Keyboard.s) ? this.speed * (Keyboard.w ? -1 : 1) : 0
-
+    }
     if (!this.directionX && !this.directionY) {
 
       if (oldXDiretion || oldYDiretion) {

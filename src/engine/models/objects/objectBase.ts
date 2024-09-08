@@ -6,7 +6,7 @@ import { Layer } from '../layer';
 import { Vector2 } from '../vector2';
 
 export abstract class ObjectBase {
-  private pos: Vector2
+  protected pos: Vector2
   private layer!: Layer
   private visible$: boolean = true;
   readonly code: string
@@ -17,6 +17,7 @@ export abstract class ObjectBase {
   height: number
   get visible() { return this.visible$ }
   get position(): Readonly<Vector2> { return this.pos }
+  set position(pos:Vector2) { this.pos = pos}
   get colliderData() {
     const x = this.position.x + this.colliderData$.y
     const y = this.position.y + this.colliderData$.x

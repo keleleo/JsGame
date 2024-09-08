@@ -3,10 +3,9 @@ import { Sprite } from '../sprite';
 import { Vector2 } from '../vector2';
 import { ObjectBase } from './objectBase';
 
-export abstract class ObjectAnimated extends ObjectBase {
+export class ObjectAnimated extends ObjectBase {
   readonly scale
   readonly animations = new Map<string, Sprite & { image: HTMLImageElement }>()
-  readonly batata = new Map<string, Sprite & { image: HTMLImageElement }>()
 
   currentAnimation: string
   currentFrame = 0

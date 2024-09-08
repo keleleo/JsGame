@@ -1,124 +1,15 @@
 {
-    "Map/SizeTest": {
-        "height": 4300,
-        "width": 2
-    },
-    "activeFile": "maps/map.tmx",
     "expandedProjectPaths": [
-        "world",
-        "tiles",
         "maps",
-        "."
+        ".",
+        "world",
+        "tiles"
     ],
-    "exportAsImage.useCurrentScale": false,
     "fileStates": {
-        "": {
-            "scaleInDock": 3
-        },
-        "map-01.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 952,
-                "y": 1180.6666666666665
-            }
-        },
-        "maps/map-01.tmx": {
-            "expandedGroupLayers": [
-                21,
-                13
-            ],
-            "expandedObjectLayers": [
-                11
-            ],
-            "scale": 1.5,
-            "selectedLayer": 4,
-            "viewCenter": {
-                "x": 242,
-                "y": 988.3333333333333
-            }
-        },
-        "maps/map-01.tmx#TilesetNature": {
-            "scaleInDock": 1
-        },
-        "maps/map.tmx": {
-            "expandedGroupLayers": [
-                13
-            ],
-            "scale": 2,
-            "selectedLayer": 11,
-            "viewCenter": {
-                "x": 298.25,
-                "y": 1156.25
-            }
-        },
-        "maps/map.tmx#TilesetNature": {
-            "scaleInDock": 3
-        },
-        "maps/teste.tmx": {
-            "scale": 16,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 15.25,
-                "y": 24.21875
-            }
-        },
-        "tiles/TilesetField.tsx": {
-            "scaleInDock": 2,
-            "scaleInEditor": 4
-        },
-        "tiles/TilesetFloor.tsx": {
-            "scaleInDock": 2,
-            "scaleInEditor": 4
-        },
-        "tiles/TilesetNature.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
-        },
-        "tiles/TilesetVillageAbandoned.tsx": {
-            "scaleInDock": 2,
-            "scaleInEditor": 1
-        },
-        "tiles/TilesetWater.tsx": {
-            "scaleInDock": 2,
-            "scaleInEditor": 2
-        },
-        "tiles/collider.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
-        }
     },
-    "last.imagePath": "C:/Projetos/jsGame/game/tiled/assets",
-    "last.worldFilePath": "C:/Projetos/jsGame/game/tiled/world",
-    "loadedWorlds": [
-        "C:/Projetos/jsGame/game/tiled/world/tiled.world"
-    ],
-    "map.fixedSize": true,
-    "map.height": 2,
-    "map.lastUsedFormat": "tmx",
-    "map.renderOrder": "2",
-    "map.tileHeight": 16,
-    "map.tileWidth": 16,
-    "map.width": 2,
     "openFiles": [
-        "maps/map.tmx"
     ],
-    "project": "jsgame.tiled-project",
+    "project": "",
     "recentFiles": [
-        "maps/map.tmx",
-        "tiles/TilesetField.tsx",
-        "tiles/TilesetFloor.tsx",
-        "tiles/TilesetWater.tsx",
-        "tiles/TilesetVillageAbandoned.tsx",
-        "tiles/TilesetNature.tsx",
-        "maps/map-01.tmx",
-        "tiles/collider.tsx",
-        "maps/teste.tmx",
-        "map-01.tmx"
-    ],
-    "tileset.lastUsedFormat": "tsx",
-    "tileset.tileSize": {
-        "height": 16,
-        "width": 16
-    }
+    ]
 }

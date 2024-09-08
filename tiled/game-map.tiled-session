@@ -1,0 +1,79 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "maps/map.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "maps",
+        "tiles"
+    ],
+    "fileStates": {
+        "maps/map.tmx": {
+            "expandedGroupLayers": [
+                9
+            ],
+            "scale": 2,
+            "selectedLayer": 9,
+            "viewCenter": {
+                "x": 698.5,
+                "y": 564.75
+            }
+        },
+        "maps/untitled.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 698.6666666666667,
+                "y": 531.3333333333333
+            }
+        },
+        "tiles/TilesetElement.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 5.5
+        },
+        "tiles/TilesetFloor.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "tiles/TilesetHouse.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 3
+        },
+        "tiles/TilesetNature.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 2
+        },
+        "tiles/collider.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Projetos/jsGame/game/tiled/assets",
+    "map.height": 100,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 100,
+    "mapScene.enableWorlds": true,
+    "openFiles": [
+        "maps/map.tmx"
+    ],
+    "project": "game-map.tiled-project",
+    "recentFiles": [
+        "maps/map.tmx",
+        "tiles/collider.tsx",
+        "tiles/TilesetHouse.tsx",
+        "tiles/TilesetFloor.tsx",
+        "tiles/TilesetNature.tsx",
+        "tiles/TilesetElement.tsx",
+        "maps/untitled.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
