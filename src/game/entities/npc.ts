@@ -19,7 +19,7 @@ export class NPC extends ObjectAnimated {
     this.createAnimations()
     this.swapAnimation("idle_down")
     this.icon = new Image()
-    this.icon.src = `/img/npcs/${this.folderName}/Faceset.png`;
+    this.icon.src = `./img/npcs/${this.folderName}/Faceset.png`;
   }
 
   createAnimations() {
