@@ -19,13 +19,35 @@ export class Player extends ObjectAnimated {
     super(position, 16, 16, 2.7, false, true)
     this.directionY = 0
     this.directionX = 0
-    this.createAnimations()
+    this.setBoySkin()
     this.swapAnimation("idle_down")
   }
 
-  createAnimations() {
-    const idlePath = "img/player/Idle.png"
-    const walkPath = "img/player/Walk.png"
+  setBoySkin() {
+    this.clearAnimations()
+    this.createAnimations('boy')
+  }
+
+  setGirlSkin() {
+    this.clearAnimations()
+    this.createAnimations('girl')
+  }
+
+  clearAnimations() {
+    this.removeAnimation("idle_up")
+    this.removeAnimation("idle_down")
+    this.removeAnimation("idle_left")
+    this.removeAnimation("idle_right")
+    this.removeAnimation("walk_down")
+    this.removeAnimation("walk_up")
+    this.removeAnimation("walk_left")
+    this.removeAnimation("walk_right")
+  }
+
+  createAnimations(skinName: string) {
+    const idlePath = `img/player/${skinName}/Idle.png`
+    const walkPath = `img/player/${skinName}/Walk.png`
+
     this.addAnimation("idle_up", { frameRate: 1, frameBuffer: 20, src: idlePath, autoPlay: false, firstFrame: 1 })
     this.addAnimation("idle_down", { frameRate: 1, frameBuffer: 20, src: idlePath, autoPlay: false, firstFrame: 0 })
     this.addAnimation("idle_left", { frameRate: 1, frameBuffer: 20, src: idlePath, autoPlay: false, firstFrame: 2 })
@@ -49,6 +71,10 @@ export class Player extends ObjectAnimated {
     if (Keyboard.y) ColliderManager.unShow()
 
     if (Keyboard.e) this.interaction()
+
+    if (Keyboard.b) this.setBoySkin();
+    if (Keyboard.g) this.setGirlSkin();
+
     this.lastKeyState.p = Keyboard.p
     this.lastKeyState.e = Keyboard.e
   }
