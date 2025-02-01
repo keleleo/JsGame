@@ -14,7 +14,11 @@ export class DialogObject extends ObjectImage {
   public static get isOpen() { return this.open }
 
   constructor() {
-    super(new Vector2(0, 0), "img/ui/DialogBoxFaceset.png", true)
+    super({
+      position: new Vector2(0, 0),
+      image: "img/ui/DialogBoxFaceset.png",
+      fixedOnScreen:true
+    })
     this.imageScale = 2
   }
 

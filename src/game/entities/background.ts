@@ -5,7 +5,10 @@ export class Background extends ObjectImage {
   imageScale = 3;
 
   constructor(position: Vector2, img: string) {
-    super(position, img)
+    super({
+      image: img,
+      position: position,
+    })
   }
 
   start(): void { }

@@ -9,7 +9,7 @@ import { ColliderManager } from './colliderManager';
 
 
 export class LayerManager {
-  private static readonly layers =new Map<string, Layer>()
+  private static readonly layers = new Map<string, Layer>()
 
   private static callUpdate() {
     for (let layer of this.layers.values()) {
@@ -18,13 +18,13 @@ export class LayerManager {
   }
   private static drawObject(object: ObjectBase, position: Vector2, collidersData: Crop[]) {
     const addCollliderData = object.collider && ColliderManager.showCollider
-    
+
     object.draw(position)
-    
+
     if (!addCollliderData) return;
-    
+
     const colliderPos = Camera.positionRelative(new Vector2(object.colliderData.x, object.colliderData.y))
-    
+
     collidersData.push(new Crop(
       colliderPos.x,
       colliderPos.y,
@@ -41,10 +41,9 @@ export class LayerManager {
 
       const onScreen = Camera.isOnScreen(position, object.width, object.height)
       if (onScreen && object.visible) this.drawObject(object, position, collidersData)
-      if(!onScreen && object.fixedOnScreen) console.log(position);
-      
+      if (!onScreen && object.fixedOnScreen) console.log(position);
     }
-    
+
     for (let data of collidersData) {
       Engine.context.fillStyle = "#3bff4580"
       Engine.context.fillRect(data.x, data.y, data.width, data.height)

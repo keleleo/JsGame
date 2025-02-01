@@ -1,4 +1,5 @@
 import { Engine } from '../../engine';
+import { ObjectAnimatedOptions } from '../options/objectAnimated.options';
 import { Sprite } from '../sprite';
 import { Vector2 } from '../vector2';
 import { ObjectBase } from './objectBase';
@@ -10,11 +11,14 @@ export class ObjectAnimated extends ObjectBase {
   currentAnimation: string
   currentFrame = 0
   elapsedFrames = 0
-  constructor(position: Vector2, width: number, height: number, scale: number, fixedOnScreen?: boolean, collider?: boolean) {
-    super(position, width * scale, height * scale, fixedOnScreen, collider)
-    this.scale = scale
+  constructor(options: ObjectAnimatedOptions) {
+    super({
+      ...options,
+      width: options.width * options.scale,
+      height: options.height * options.scale
+    })
+    this.scale = options.scale
     this.currentAnimation = ''
-
   }
 
   swapAnimation(name: string) {

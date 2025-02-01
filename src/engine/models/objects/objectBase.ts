@@ -3,21 +3,22 @@ import { ColliderManager } from '../../controllers/colliderManager';
 import { randomCode } from '../../utils/randomCode';
 import { Crop } from '../crop';
 import { Layer } from '../layer';
+import { ObjectBaseOptions } from '../options/objectBase.options';
 import { Vector2 } from '../vector2';
 
 export abstract class ObjectBase {
   protected pos: Vector2
   private layer!: Layer
-  private visible$: boolean = true;
+  private visible$: boolean = true
   readonly code: string
-  readonly fixedOnScreen
+  readonly fixedOnScreen: boolean
   readonly collider: boolean
-  protected readonly colliderData$ = new Crop();
+  protected readonly colliderData$ = new Crop()
   width: number
   height: number
   get visible() { return this.visible$ }
   get position(): Readonly<Vector2> { return this.pos }
-  set position(pos:Vector2) { this.pos = pos}
+  set position(pos: Vector2) { this.pos = pos }
   get colliderData() {
     const x = this.position.x + this.colliderData$.y
     const y = this.position.y + this.colliderData$.x
@@ -25,20 +26,15 @@ export abstract class ObjectBase {
     return new Crop(x, y, this.colliderData$.width, this.colliderData$.height)
   }
 
-  constructor(position: Vector2,
-    width: number,
-    height: number,
-    fixedOnScreen: boolean = false,
-    colider: boolean = false
-  ) {
-    this.pos = position
-    this.width = width
-    this.height = height
-    this.fixedOnScreen = fixedOnScreen
-    this.collider = colider
+  constructor(options: ObjectBaseOptions) {
+    this.pos = options.position
+    this.width = options.width || 0
+    this.height = options.height || 0
+    this.fixedOnScreen = options.fixedOnScreen || false
+    this.collider = options.colider || false
     this.code = randomCode()
-    this.colliderData$.width = width
-    this.colliderData$.height = height
+    this.colliderData$.width = options.width || 0
+    this.colliderData$.height = options.height || 0
     ColliderManager.addObject(this)
   }
 

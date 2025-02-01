@@ -13,7 +13,14 @@ export class NPC extends ObjectAnimated {
   private icon: HTMLImageElement;
   private dialogInfo?: ObjectAnimated;
   constructor(position: Vector2, width: number, height: number, scale: number, folderName: string) {
-    super(position, width, height, scale, false, true)
+    super({
+      position: position,
+      width: width,
+      height: height,
+      scale: scale,
+      fixedOnScreen: false,
+      colider: true
+    })
     this.folderName = folderName
 
     this.createAnimations()
@@ -68,7 +75,12 @@ export class NPC extends ObjectAnimated {
   setDialogText(...texts: string[]) {
     if (!this.dialogInfo) {
 
-      this.dialogInfo = new ObjectAnimated(new Vector2(0, 0), 20, 16, 1.5)
+      this.dialogInfo = new ObjectAnimated({
+        position: new Vector2(0, 0),
+        width: 20,
+        height: 16,
+        scale: 1.5
+      })
       this.dialogInfo.currentAnimation = 'default'
       this.dialogInfo.addAnimation('default', { frameRate: 4, frameBuffer: 20, src: "/img/ui/DialogInfo.png", })
       this.updateDialogInfoPosition()
@@ -79,7 +91,7 @@ export class NPC extends ObjectAnimated {
   }
 
   interaction() {
-    if(!this.dialogTexts.length) return;
+    if (!this.dialogTexts.length) return;
     const text = this.dialogTexts[Math.floor(Math.random() * this.dialogTexts.length)]
     DialogObject.show(text, this.icon)
   }

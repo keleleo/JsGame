@@ -1,4 +1,5 @@
 import { Engine } from '../../engine';
+import { ObjectImageOptions } from '../options/objectImage.options';
 import { Vector2 } from '../vector2';
 import { ObjectBase } from './objectBase';
 
@@ -6,12 +7,11 @@ export abstract class ObjectImage extends ObjectBase {
   image = new Image();
   imageScale = 1;
 
-  constructor(position: Vector2, image: string, fixedOnScreen?: boolean, collider?: boolean) {
-    super(position, 0, 0, fixedOnScreen, collider);
+  constructor(options: ObjectImageOptions) {
+    super(options);
     this.image.onload = () => this.onLoad()
     //whem path starts with / add "." to fix path error
-    image = image.startsWith('/') ? '.' + image : image
-    this.image.src = image
+    this.image.src = options.image.startsWith('/') ? '.' + options.image : options.image
   }
 
   private onLoad() {

@@ -16,7 +16,13 @@ export class Player extends ObjectAnimated {
 
 
   constructor(position: Vector2) {
-    super(position, 16, 16, 2.7, false, true)
+    super({
+      position: position,
+      width: 16,
+      height: 16,
+      colider: true,
+      scale:2.7
+    })
     this.directionY = 0
     this.directionX = 0
     this.setBoySkin()
