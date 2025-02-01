@@ -16,11 +16,17 @@ export class ObjectAnimated extends ObjectBase {
     this.currentAnimation = ''
 
   }
+
   swapAnimation(name: string) {
     if (this.currentAnimation === name) return;
     this.currentAnimation = name
     this.currentFrame = 0
   }
+
+  removeAnimation(name: string) {
+    this.animations.delete(name)
+  }
+
   addAnimation(name: string, config: Sprite) {
     const image = new Image();
     image.onload = () => {
